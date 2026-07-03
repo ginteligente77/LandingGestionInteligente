@@ -21,12 +21,10 @@ export function Footer() {
         <p className="font-mono text-xs text-gray">© 2026 {BRAND.name}</p>
 
         <a
-          href={`https://${BRAND.web}`}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`mailto:${BRAND.email}`}
           className="font-mono text-xs text-body transition-colors hover:text-cyan"
         >
-          {BRAND.web}
+          {BRAND.email}
         </a>
       </div>
     </footer>

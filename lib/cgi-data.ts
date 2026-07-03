@@ -1,7 +1,6 @@
 export const BRAND = {
   name: "Corporación Gestión Inteligente",
   tagline: "Hacemos que tu institución haga realidad el proyecto que piensas",
-  web: "gestioninteligente.com.co",
   email: "corporaciongestioninteligente@gmail.com",
   phone: "301 457 2353",
   phoneIntl: "573014572353",

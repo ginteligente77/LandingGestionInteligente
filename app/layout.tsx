@@ -43,7 +43,6 @@ export const metadata: Metadata = {
     title: "Corporación Gestión Inteligente",
     description:
       "Soluciones integrales de gestión estratégica, técnica y jurídica para organizaciones públicas y privadas.",
-    url: "https://gestioninteligente.com.co",
     siteName: "Corporación Gestión Inteligente",
     locale: "es_CO",
     type: "website",
