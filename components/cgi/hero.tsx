@@ -14,11 +14,20 @@ export function Hero() {
     >
       {/* Grid background */}
       <div className="grid-bg animate-grid-breathe pointer-events-none absolute inset-0" aria-hidden />
-      {/* Radial vignette — fades edges into the light base */}
+      {/* Modern blue nebula — gives the hologram a field to blend into */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background: "radial-gradient(ellipse at 75% 45%, transparent 0%, transparent 45%, var(--base) 88%)",
+          background:
+            "radial-gradient(58% 68% at 79% 44%, rgba(9,24,56,0.94) 0%, rgba(14,36,85,0.78) 24%, rgba(26,58,143,0.42) 44%, rgba(0,147,201,0.14) 60%, transparent 76%)",
+        }}
+        aria-hidden
+      />
+      {/* Soft light wash keeps the copy side bright and readable */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: "linear-gradient(90deg, var(--base) 8%, transparent 42%)",
         }}
         aria-hidden
       />
@@ -54,20 +63,20 @@ export function Hero() {
 
         {/* Right: globe */}
         <div className="relative flex items-center justify-center">
-          {/* Dark halo so the screen-blended hologram stays vivid on the light page */}
+          {/* Orbit glow ring blends the hologram into the nebula */}
           <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[112%] w-[112%] max-w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[125%] w-[125%] max-w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full"
             style={{
               background:
-                "radial-gradient(circle at 50% 47%, #0a1c40 0%, #0b2350 38%, rgba(11,35,80,0.55) 58%, transparent 72%)",
+                "radial-gradient(circle at 50% 48%, rgba(0,147,201,0.22) 0%, rgba(26,58,143,0.14) 42%, transparent 68%)",
             }}
             aria-hidden
           />
           <div
             className="animate-globe-float relative w-full max-w-[560px]"
             style={{
-              maskImage: "radial-gradient(ellipse 72% 72% at 50% 48%, black 55%, transparent 82%)",
-              WebkitMaskImage: "radial-gradient(ellipse 72% 72% at 50% 48%, black 55%, transparent 82%)",
+              maskImage: "radial-gradient(ellipse 70% 70% at 50% 48%, black 42%, transparent 78%)",
+              WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 48%, black 42%, transparent 78%)",
             }}
           >
             <Image

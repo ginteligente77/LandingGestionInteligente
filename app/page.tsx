@@ -4,6 +4,7 @@ import { Hero } from "@/components/cgi/hero"
 import { QuienesSomos } from "@/components/cgi/quienes-somos"
 import { Trayectoria } from "@/components/cgi/trayectoria"
 import { Servicios } from "@/components/cgi/servicios"
+import { Territorial } from "@/components/cgi/territorial"
 import { Adn } from "@/components/cgi/adn"
 import { Valores } from "@/components/cgi/valores"
 import { Partners } from "@/components/cgi/partners"
@@ -21,6 +22,7 @@ export default function Home() {
         <QuienesSomos />
         <Trayectoria />
         <Servicios />
+        <Territorial />
         <Adn />
         <Valores />
         <Partners />

@@ -161,6 +161,100 @@
     border: none;
     background: linear-gradient(90deg, var(--cyan), transparent);
   }
+
+  /* ─── RICHER LIGHT SURFACES (kills the flat look) ─── */
+  .mesh-light {
+    background:
+      radial-gradient(820px 460px at 100% -5%, rgba(0, 147, 201, 0.12), transparent 55%),
+      radial-gradient(680px 520px at -5% 105%, rgba(90, 163, 16, 0.09), transparent 55%),
+      var(--base);
+  }
+  .mesh-surface {
+    background:
+      radial-gradient(760px 420px at 0% 0%, rgba(0, 147, 201, 0.07), transparent 55%),
+      radial-gradient(620px 480px at 100% 100%, rgba(26, 58, 143, 0.06), transparent 55%),
+      var(--surface);
+  }
+
+  /* ─── DARK BRAND SECTIONS (portfolio navy) ─── */
+  .section-dark {
+    position: relative;
+    color: #b8c9e4;
+    background:
+      radial-gradient(1100px 560px at 12% -12%, rgba(0, 147, 201, 0.22), transparent 58%),
+      radial-gradient(980px 680px at 105% 0%, rgba(26, 58, 143, 0.42), transparent 55%),
+      radial-gradient(760px 600px at 90% 110%, rgba(90, 163, 16, 0.12), transparent 55%),
+      linear-gradient(180deg, #0a1c40 0%, #0b2350 52%, #08152f 100%);
+  }
+  .section-dark h1,
+  .section-dark h2,
+  .section-dark h3,
+  .section-dark h4 {
+    color: #f2f7ff;
+  }
+  .on-dark-title {
+    color: #f2f7ff;
+  }
+  .on-dark-body {
+    color: #a9bcda;
+  }
+  .on-dark-muted {
+    color: #7d92b6;
+  }
+
+  /* Grid overlay tuned for dark backgrounds */
+  .grid-bg-dark {
+    background-image: linear-gradient(rgba(120, 190, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120, 190, 255, 0.06) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+
+  /* Glass card that reads on dark navy */
+  .glass-dark {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+    border: 1px solid rgba(120, 180, 255, 0.16);
+    border-radius: 16px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 24px 48px -26px rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  .glass-dark.card-accent::before {
+    background: linear-gradient(90deg, var(--cyan-glow), transparent);
+  }
+
+  /* Ambient colour blobs */
+  .blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(70px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Bright gradient headline for dark sections */
+  .text-gradient-bright {
+    background: linear-gradient(120deg, #ffffff 20%, var(--cyan-glow) 60%, var(--green-glow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Frame for photos */
+  .photo-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(120, 180, 255, 0.2);
+    box-shadow: 0 30px 60px -30px rgba(8, 19, 42, 0.55);
+  }
+  .photo-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 45%, rgba(8, 21, 47, 0.55) 100%);
+    pointer-events: none;
+  }
 }
 
 /* ─── SCROLL REVEAL ANIMATIONS ─── */
@@ -304,6 +398,69 @@
 }
 .animate-pulse-dot {
   animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 44s linear infinite;
+}
+
+@keyframes spin-slower {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.animate-spin-slower {
+  animation: spin-slower 60s linear infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  8% {
+    transform: scale(1.055);
+  }
+  16% {
+    transform: scale(1);
+  }
+  24% {
+    transform: scale(1.04);
+  }
+  32% {
+    transform: scale(1);
+  }
+}
+.animate-heartbeat {
+  animation: heartbeat 3.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+.animate-dash {
+  animation: dash-flow 14s linear infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float-y {
+  animation: float-y 8s ease-in-out infinite;
 }
 
 /* ─── REDUCED MOTION ─── */

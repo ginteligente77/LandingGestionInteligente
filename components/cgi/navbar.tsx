@@ -19,39 +19,38 @@ export function Navbar() {
   return (
     <>
       <header
-        className="fixed inset-x-0 top-0 z-50 h-24 transition-[background,backdrop-filter] duration-300"
+        className="fixed inset-x-0 top-0 z-50 h-28 transition-shadow duration-300"
         style={{
-          background: scrolled ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0)",
-          backdropFilter: scrolled ? "blur(16px)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
-          borderBottom: scrolled ? "1px solid var(--border-cyan)" : "1px solid transparent",
-          boxShadow: scrolled ? "0 4px 24px -12px rgba(8,19,42,0.25)" : "none",
+          background: "#ffffff",
+          borderBottom: "1px solid var(--border-cyan)",
+          boxShadow: scrolled ? "0 6px 28px -14px rgba(8,19,42,0.28)" : "0 1px 0 rgba(8,19,42,0.04)",
         }}
       >
         <nav className="mx-auto flex h-full max-w-7xl items-center justify-between px-5 md:px-8">
           <a
             href="#hero"
             aria-label="Corporación Gestión Inteligente - Inicio"
-            className={`flex items-center transition-opacity ${scrolled ? "opacity-100" : "opacity-90"}`}
+            className="flex items-center"
           >
             <Image
               src="/logo-cgi.png"
               alt="Corporación Gestión Inteligente"
-              width={220}
-              height={80}
-              className="h-16 w-auto object-contain"
+              width={320}
+              height={116}
+              className="h-[84px] w-auto object-contain"
               priority
             />
           </a>
 
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-6 lg:gap-7 md:flex">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-body transition-colors hover:text-ink"
+                className="group relative text-sm font-medium text-body transition-colors hover:text-ink"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-cyan to-green transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
             <a

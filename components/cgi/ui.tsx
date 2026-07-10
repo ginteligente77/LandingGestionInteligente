@@ -11,6 +11,13 @@ import {
   Sprout,
   Handshake,
   RefreshCw,
+  ShieldCheck,
+  Waves,
+  Recycle,
+  Leaf,
+  ShieldAlert,
+  Map,
+  Compass,
   type LucideIcon,
 } from "lucide-react"
 
@@ -27,6 +34,23 @@ export const ICONS: Record<string, LucideIcon> = {
   Sprout,
   Handshake,
   RefreshCw,
+  ShieldCheck,
+  Waves,
+  Recycle,
+  Leaf,
+  ShieldAlert,
+  Map,
+  Compass,
+}
+
+/* Icon lookup for the territorial instruments (POMCA, PGIRS…) */
+export const TERRITORIAL_ICONS: Record<string, LucideIcon> = {
+  POMCA: Waves,
+  PGIRS: Recycle,
+  PMA: Leaf,
+  PGR: ShieldAlert,
+  POT: Map,
+  PDD: Compass,
 }
 
 export function SectionLabel({ children }: { children: React.ReactNode }) {

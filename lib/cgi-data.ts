@@ -10,7 +10,8 @@ export const BRAND = {
 
 export const NAV_LINKS = [
   { label: "Quiénes somos", href: "#quienes-somos" },
-  { label: "Servicios", href: "#servicios" },
+  { label: "Trayectoria", href: "#trayectoria" },
+  { label: "Otros servicios", href: "#servicios" },
   { label: "ADN", href: "#adn" },
   { label: "Aliados", href: "#aliados" },
 ]
@@ -29,57 +30,99 @@ export const STATS = [
   { value: 5, suffix: "", label: "Aliados estratégicos" },
 ]
 
-export const TEAM = [
-  { name: "MBA. Javier Acevedo", role: "CEO" },
-  { name: "Prof. Andrea Camila Aro", role: "Docente / Investigadora" },
-  { name: "Esp. Jorge González", role: "Especialista" },
-  { name: "MBA. Omar Casadiego", role: "Consultor Estratégico" },
-  { name: "Esp. Marcos Monsalve", role: "Especialista" },
-  { name: "PhD. Ismael Ibañez", role: "Investigador PhD" },
+export type TeamMember = {
+  name: string
+  role: string
+  img: string
+  phone?: string
+  email?: string
+}
+
+export const TEAM: TeamMember[] = [
+  {
+    name: "MBA. Javier Acevedo",
+    role: "CEO & Fundador",
+    img: "/JavierAcevedo.jpeg",
+    phone: "573014572353",
+    email: "corporaciongestioninteligente@gmail.com",
+  },
+  { name: "Prof. Andrea Camila Aro", role: "Profesional", img: "/AndreaCamilaAro.jpeg" },
+  { name: "Esp. Jorge González", role: "Especialista", img: "/JorgeGonzalez.jpeg" },
+  { name: "MBA. Omar Casadiego", role: "Consultor Estratégico", img: "/OmarCasadiego.jpeg" },
+  { name: "Esp. Marcos Monsalve", role: "Especialista", img: "/MarcosMonsalve.jpeg" },
+  { name: "PhD. Ismael Ibáñez", role: "Investigador PhD", img: "/IsmaelIbanez.jpeg" },
 ]
 
-export const TRAYECTORIA = [
+export type TrayectoriaItem = {
+  number: string
+  icon: string
+  client: string
+  title: string
+  description: string
+  image: string
+  tags: string[]
+}
+
+export const TRAYECTORIA: TrayectoriaItem[] = [
   {
     number: "01",
     icon: "GraduationCap",
-    title: "Universidad Industrial de Santander",
+    client: "Universidad Industrial de Santander — UIS",
+    title: "Zonas Francas Populares Especiales",
     description:
-      "Estudios, análisis y acompañamiento técnico en nanotecnología, análisis sectorial, zonas francas, diagnóstico, evaluaciones y planes estratégicos.",
+      "Consultoría especializada para identificar zonas francas populares especiales en regiones de Colombia, con énfasis en el mapeo actual, el potencial regional y propuestas concretas para promover emprendimientos sociales, competitividad empresarial nacional e internacional y potenciales spin-offs en el marco de la misión de estas zonas francas.",
+    image: "/campo-amazonas.jpeg",
+    tags: ["Mapeo regional", "Emprendimientos sociales", "Spin-offs"],
   },
   {
     number: "02",
     icon: "Landmark",
-    title: "Alcaldía de Bucaramanga",
+    client: "Alcaldía de Bucaramanga",
+    title: "Estratificación Socioeconómica",
     description:
-      "Estudios, diagnósticos, planificación, consultoría y análisis de vulnerabilidades y riesgos (AVR) para el fortalecimiento de procesos institucionales.",
+      "Servicios profesionales para la revisión, administración y alimentación de bases de datos en asuntos del área de estratificación socioeconómica de la Secretaría de Planeación, en el marco del proyecto de inversión “Fortalecimiento del servicio de estratificación socioeconómica en el área rural y urbana del municipio de Bucaramanga”.",
+    image: "/campo-sena.jpeg",
+    tags: ["Bases de datos", "Secretaría de Planeación", "AVR"],
   },
   {
     number: "03",
-    icon: "Lightbulb",
-    title: "Transformación Digital",
+    icon: "ShieldCheck",
+    client: "AtekGroup · Catme · Coomuldesa · Comultrasan",
+    title: "Transformación Digital y Ciberseguridad",
     description:
-      "Proyectos de ciberseguridad, auditoría TI y gestión de datos para AtekGroup, Catme S.A.S, Coomuldesa y Financiera Comultrasan.",
+      "Asesoría especializada para la gestión de bases de datos y auditoría en ISO 27001 para sistemas de gestión de seguridad de la información, con apoyo en ciberseguridad y gestión de la información utilizando inteligencia artificial, fortaleciendo los procesos empresariales de nuestros clientes.",
+    image: "/oficina-seguros.jpeg",
+    tags: ["ISO 27001", "Auditoría TI", "Ciberseguridad"],
   },
   {
     number: "04",
     icon: "Droplets",
-    title: "Servicios Públicos",
+    client: "Ecosistemas ESP y aliados",
+    title: "Servicios Públicos Domiciliarios",
     description:
-      "Con Ecosistemas ESP y aliados: tarifas, gestión SUI-SSPD, calidad del agua y optimización operativa para prestadores de acueducto, alcantarillado y aseo.",
+      "Fortalecimiento de procesos tarifarios, gestión de información SUI – SSPD, gestión ambiental, calidad del agua y optimización operativa para entidades públicas y prestadores de acueducto, alcantarillado y aseo.",
+    image: "/oficina-asesoria.jpeg",
+    tags: ["SUI – SSPD", "Tarifas", "Calidad del agua"],
   },
   {
     number: "05",
     icon: "HardHat",
+    client: "Construcciones HOBEFEL S.A.S.",
     title: "Infraestructura y Obra Civil",
     description:
-      "Con HOBEFEL: interventoría, infraestructura vial, acueducto, alcantarillado, escenarios deportivos, eléctricos y obras de mitigación del riesgo.",
+      "Obras civiles, consultoría e interventoría para entidades públicas: infraestructura vial, acueducto, alcantarillado, edificaciones, escenarios deportivos, sistemas eléctricos y obras de mitigación del riesgo, contribuyendo al desarrollo territorial.",
+    image: "/campo-putumayo.jpeg",
+    tags: ["Interventoría", "Vías y redes", "Mitigación del riesgo"],
   },
   {
     number: "06",
     icon: "Bot",
-    title: "Soluciones con IA",
+    client: "UIS · Alcaldía de Bucaramanga · Sector salud",
+    title: "Soluciones de Software con IA",
     description:
-      "Software basado en inteligencia artificial para instituciones educativas, el sector público y el sector salud — UIS y Alcaldía de Bucaramanga.",
+      "Diseño de soluciones de software basadas en inteligencia artificial para la optimización de procesos en instituciones educativas, el sector público y el sector salud, aplicadas en la UIS y la Alcaldía de Bucaramanga.",
+    image: "/campo-vichada.jpeg",
+    tags: ["Inteligencia artificial", "Optimización", "Sector público"],
   },
 ]
 
@@ -195,4 +238,33 @@ export const CLIENTES = [
   "Alcaldía de Bucaramanga",
   "Coomuldesa",
   "Centro de Alta Tecnología Médica (CATME)",
+]
+
+/* Ordenamiento territorial y estudios ambientales — servicio destacado */
+export const TERRITORIAL = {
+  intro:
+    "Desarrollamos estudios ambientales, planes de desarrollo, ordenamiento territorial y estrategias de prospectiva para entidades públicas y privadas, integrando el enfoque territorial y ambiental en cada proyecto.",
+  instruments: [
+    { code: "POMCA", label: "Ordenación y Manejo de Cuencas Hidrográficas" },
+    { code: "PGIRS", label: "Gestión Integral de Residuos Sólidos" },
+    { code: "PMA", label: "Planes de Manejo Ambiental" },
+    { code: "PGR", label: "Planes de Gestión del Riesgo" },
+    { code: "POT", label: "Ordenamiento Territorial" },
+    { code: "PDD", label: "Planes de Desarrollo y Prospectiva" },
+  ],
+  highlights: [
+    "Parcelaciones campestres autosostenibles con enfoque territorial y ambiental",
+    "Planes estratégicos para organizaciones públicas y privadas",
+    "Diagnósticos participativos e investigaciones socioeconómicas",
+  ],
+}
+
+/* Fotografías reales de trabajo en territorio y oficina */
+export const FIELD_GALLERY = [
+  { src: "/campo-amazonas.jpeg", caption: "Amazonas · Acompañamiento a emprendimientos artesanales" },
+  { src: "/campo-vichada.jpeg", caption: "Vichada · Marañones del Vichada, producto artesanal" },
+  { src: "/campo-putumayo.jpeg", caption: "Putumayo · Fortalecimiento y promoción territorial" },
+  { src: "/campo-sena.jpeg", caption: "Levantamiento y gestión de información en campo" },
+  { src: "/oficina-asesoria.jpeg", caption: "Asesoría y consultoría especializada" },
+  { src: "/oficina-seguros.jpeg", caption: "Gestión de datos y seguridad de la información" },
 ]

@@ -1,11 +1,14 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import Image from "next/image"
 import { MapPin } from "lucide-react"
 import { Reveal } from "./reveal"
 import { SectionLabel } from "./ui"
-import { PARTNERS } from "@/lib/cgi-data"
+import { PARTNERS, FIELD_GALLERY } from "@/lib/cgi-data"
 import { ColombiaMap, normalizeDept } from "./colombia-map"
+
+const TERRITORY_PHOTOS = FIELD_GALLERY.slice(0, 4)
 
 export function Partners() {
   const [active, setActive] = useState<string | null>(null)
@@ -17,8 +20,9 @@ export function Partners() {
   )
 
   return (
-    <section id="partners" className="relative bg-base px-5 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-7xl">
+    <section id="partners" className="mesh-light relative overflow-hidden px-5 py-24 md:px-8 md:py-32">
+      <span className="blob" style={{ width: 400, height: 400, top: "10%", left: "-8%", background: "rgba(90,163,16,0.10)" }} aria-hidden />
+      <div className="relative z-10 mx-auto max-w-7xl">
         <Reveal className="flex max-w-2xl flex-col">
           <SectionLabel>Territorio</SectionLabel>
           <h2 className="mt-4 text-balance font-display text-3xl font-bold leading-tight md:text-4xl">
@@ -29,6 +33,24 @@ export function Partners() {
             permiten ejecutar proyectos de impacto regional. Pasa el cursor sobre un departamento para ubicarlo en el
             mapa.
           </p>
+        </Reveal>
+
+        {/* Field photo strip — real work in the territory */}
+        <Reveal animation="stagger" className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {TERRITORY_PHOTOS.map((photo) => (
+            <figure key={photo.src} className="photo-frame group aspect-[4/3]">
+              <Image
+                src={photo.src}
+                alt={photo.caption}
+                fill
+                sizes="(max-width: 640px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 z-10 p-3 text-[11px] font-medium leading-snug text-white">
+                {photo.caption}
+              </figcaption>
+            </figure>
+          ))}
         </Reveal>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
