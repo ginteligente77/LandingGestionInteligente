@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { User, Phone, Mail, MapPin, ArrowRight } from "lucide-react"
 import { Reveal } from "./reveal"
 import { SectionLabel } from "./ui"
@@ -13,15 +14,32 @@ export function Contacto() {
         aria-hidden
       />
 
-      <div className="relative z-10 mx-auto flex max-w-2xl flex-col items-center text-center">
-        <Reveal className="flex flex-col items-center">
+      <div className="relative z-10 mx-auto max-w-5xl">
+        <Reveal className="flex flex-col items-center text-center">
           <SectionLabel>Contacto</SectionLabel>
           <h2 className="mt-4 text-balance font-display text-3xl font-bold leading-tight md:text-4xl">
             Hagamos realidad tu próximo proyecto
           </h2>
         </Reveal>
 
-        <Reveal className="glass mt-10 w-full p-8 text-left md:p-10">
+        <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-stretch">
+          {/* Photo — advisory moment */}
+          <Reveal animation="left" className="order-last lg:order-first">
+            <figure className="photo-frame h-full min-h-[320px]">
+              <Image
+                src="/oficina-seguros.jpeg"
+                alt="Equipo de Gestión Inteligente asesorando a un cliente"
+                fill
+                sizes="(max-width: 1024px) 100vw, 480px"
+                className="object-cover object-[center_30%]"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 z-10 p-5 text-sm font-medium leading-snug text-white">
+                Asesoría y acompañamiento cercano en cada proyecto.
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          <Reveal animation="right" className="glass h-full p-8 text-left md:p-10">
           <ul className="space-y-4">
             <li className="flex items-center gap-3">
               <User className="h-5 w-5 shrink-0 text-cyan" />
@@ -72,7 +90,8 @@ export function Contacto() {
             <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
             <p className="text-sm leading-relaxed text-body">{BRAND.address}</p>
           </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   )

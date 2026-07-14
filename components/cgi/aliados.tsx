@@ -58,25 +58,6 @@ export function Aliados() {
             proyecto.
           </p>
         </Reveal>
-
-        {/* Office photo — shown in full */}
-        <Reveal className="mx-auto mt-10 max-w-sm">
-          <figure
-            className="photo-frame flex items-center justify-center"
-            style={{ background: "linear-gradient(160deg, #0b2350, #0a1c40)" }}
-          >
-            <Image
-              src="/oficina-seguros.jpeg"
-              alt="Equipo de Gestión Inteligente asesorando a un cliente"
-              width={900}
-              height={1600}
-              className="h-full max-h-[360px] w-full object-contain"
-            />
-            <figcaption className="absolute inset-x-0 bottom-0 z-10 p-4 text-[11px] font-medium leading-snug text-white">
-              Asesoría y acompañamiento cercano en cada proyecto.
-            </figcaption>
-          </figure>
-        </Reveal>
       </div>
 
       {/* Full-bleed moving marquees */}
