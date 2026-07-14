@@ -2,53 +2,40 @@ import Image from "next/image"
 import { Building2, Users } from "lucide-react"
 import { Reveal } from "./reveal"
 import { SectionLabel } from "./ui"
+import { cn } from "@/lib/utils"
 import { ALIADOS, CLIENTES, type Organization } from "@/lib/cgi-data"
 
-function LogoTile({ org }: { org: Organization }) {
-  if (!org.logo) {
-    return (
-      <div className="flex h-24 items-center justify-center rounded-2xl border border-dashed border-cyan/30 bg-cyan/[0.05] px-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-cyan/60">
-        <span className="font-display text-sm font-bold leading-tight text-ink">{org.name}</span>
-      </div>
-    )
-  }
+function LogoCard({ org }: { org: Organization }) {
   return (
-    <div className="group flex h-24 items-center justify-center rounded-2xl border border-border bg-white px-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan/50 hover:shadow-md">
-      <Image
-        src={org.logo}
-        alt={org.name}
-        title={org.name}
-        width={180}
-        height={80}
-        className="max-h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-      />
+    <div className="marquee__item group relative flex flex-col items-center">
+      <div className="flex h-24 w-56 items-center justify-center rounded-2xl border border-border bg-white px-7 shadow-sm transition-all duration-300 group-hover:scale-[1.14] group-hover:border-cyan/50 group-hover:shadow-xl">
+        {org.logo ? (
+          <Image
+            src={org.logo}
+            alt={org.name}
+            width={190}
+            height={80}
+            className="max-h-14 w-auto object-contain"
+          />
+        ) : (
+          <span className="text-center font-display text-sm font-bold leading-tight text-ink">{org.name}</span>
+        )}
+      </div>
+      {/* name — only visible on hover, below the logo */}
+      <span className="pointer-events-none mt-3 block h-5 max-w-56 truncate rounded-md px-2 text-center text-xs font-semibold text-ink opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+        {org.name}
+      </span>
     </div>
   )
 }
 
-function LogoWall({
-  label,
-  icon: Icon,
-  items,
-  accent,
-}: {
-  label: string
-  icon: typeof Building2
-  items: Organization[]
-  accent: "cyan" | "green"
-}) {
+function MarqueeRow({ items, reverse = false }: { items: Organization[]; reverse?: boolean }) {
+  const loop = [...items, ...items]
   return (
-    <div>
-      <h3
-        className={`flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] ${
-          accent === "cyan" ? "text-cyan" : "text-green"
-        }`}
-      >
-        <Icon className="h-4 w-4" /> {label}
-      </h3>
-      <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3">
-        {items.map((org) => (
-          <LogoTile key={org.name} org={org} />
+    <div className="marquee py-3">
+      <div className={cn("marquee__track", reverse && "marquee__track--reverse")}>
+        {loop.map((org, i) => (
+          <LogoCard key={`${org.name}-${i}`} org={org} />
         ))}
       </div>
     </div>
@@ -72,32 +59,39 @@ export function Aliados() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-stretch lg:gap-12">
-          {/* Full office photo */}
-          <Reveal animation="left" className="flex">
-            <figure
-              className="photo-frame flex w-full items-center justify-center"
-              style={{ background: "linear-gradient(160deg, #0b2350, #0a1c40)" }}
-            >
-              <Image
-                src="/oficina-seguros.jpeg"
-                alt="Equipo de Gestión Inteligente asesorando a un cliente"
-                width={900}
-                height={1600}
-                className="h-full max-h-[520px] w-full object-contain"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 z-10 p-4 text-[11px] font-medium leading-snug text-white">
-                Asesoría y acompañamiento cercano en cada proyecto.
-              </figcaption>
-            </figure>
-          </Reveal>
+        {/* Office photo — shown in full */}
+        <Reveal className="mx-auto mt-10 max-w-sm">
+          <figure
+            className="photo-frame flex items-center justify-center"
+            style={{ background: "linear-gradient(160deg, #0b2350, #0a1c40)" }}
+          >
+            <Image
+              src="/oficina-seguros.jpeg"
+              alt="Equipo de Gestión Inteligente asesorando a un cliente"
+              width={900}
+              height={1600}
+              className="h-full max-h-[360px] w-full object-contain"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 z-10 p-4 text-[11px] font-medium leading-snug text-white">
+              Asesoría y acompañamiento cercano en cada proyecto.
+            </figcaption>
+          </figure>
+        </Reveal>
+      </div>
 
-          {/* Logo walls */}
-          <Reveal animation="right" className="flex flex-col justify-center gap-9">
-            <LogoWall label="Aliados" icon={Building2} items={ALIADOS} accent="cyan" />
-            <div className="hr-accent" />
-            <LogoWall label="Clientes" icon={Users} items={CLIENTES} accent="green" />
-          </Reveal>
+      {/* Full-bleed moving marquees */}
+      <div className="relative z-10 mt-14 space-y-8">
+        <div>
+          <div className="mx-auto mb-3 flex max-w-7xl items-center gap-2 px-5 font-mono text-xs uppercase tracking-[0.2em] text-cyan md:px-8">
+            <Building2 className="h-4 w-4" /> Aliados
+          </div>
+          <MarqueeRow items={ALIADOS} />
+        </div>
+        <div>
+          <div className="mx-auto mb-3 flex max-w-7xl items-center gap-2 px-5 font-mono text-xs uppercase tracking-[0.2em] text-green md:px-8">
+            <Users className="h-4 w-4" /> Clientes
+          </div>
+          <MarqueeRow items={CLIENTES} reverse />
         </div>
       </div>
     </section>
