@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react"
 import Image from "next/image"
-import { MapPin, Maximize2, X, UserRound } from "lucide-react"
+import { MapPin, X, UserRound } from "lucide-react"
 import { Reveal } from "./reveal"
 import { SectionLabel } from "./ui"
 import { PARTNERS, FIELD_GALLERY } from "@/lib/cgi-data"
@@ -15,7 +15,6 @@ type Partner = (typeof PARTNERS)[number]
 export function Partners() {
   const [hovered, setHovered] = useState<string | null>(null)
   const [selected, setSelected] = useState<Partner | null>(null)
-  const [mapOpen, setMapOpen] = useState(false)
 
   const partnerDepts = useMemo(() => new Set(PARTNERS.map((p) => normalizeDept(p.dept))), [])
   const byDept = useMemo(() => {
@@ -29,15 +28,11 @@ export function Partners() {
     if (p) setSelected(p)
   }
 
-  // Lock scroll + close on Escape while a modal is open
+  // Lock scroll + close on Escape while the popup is open
   useEffect(() => {
-    const open = mapOpen || !!selected
-    if (!open) return
+    if (!selected) return
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSelected(null)
-        setMapOpen(false)
-      }
+      if (e.key === "Escape") setSelected(null)
     }
     document.body.style.overflow = "hidden"
     window.addEventListener("keydown", onKey)
@@ -45,7 +40,7 @@ export function Partners() {
       document.body.style.overflow = ""
       window.removeEventListener("keydown", onKey)
     }
-  }, [mapOpen, selected])
+  }, [selected])
 
   return (
     <section id="partners" className="mesh-light relative overflow-hidden px-5 py-24 md:px-8 md:py-32">
@@ -85,13 +80,6 @@ export function Partners() {
           {/* Map panel */}
           <Reveal className="lg:sticky lg:top-24">
             <div className="relative">
-              <button
-                type="button"
-                onClick={() => setMapOpen(true)}
-                className="absolute right-3 top-3 z-20 inline-flex items-center gap-1.5 rounded-lg border border-white/25 bg-navy/50 px-3 py-1.5 text-xs font-medium text-cyan-glow backdrop-blur transition-colors hover:bg-cyan hover:text-navy"
-              >
-                <Maximize2 className="h-3.5 w-3.5" /> Ver completo
-              </button>
               <ColombiaMap partnerDepts={partnerDepts} active={hovered} onHover={setHovered} onSelect={openDept} />
               <div className="mt-3 flex items-center justify-between rounded-lg border border-border bg-surface px-4 py-2.5">
                 <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-gray">
@@ -138,20 +126,6 @@ export function Partners() {
 
       {/* Partner popup */}
       {selected && <PartnerModal partner={selected} onClose={() => setSelected(null)} />}
-
-      {/* Fullscreen map */}
-      {mapOpen && (
-        <MapModal
-          partnerDepts={partnerDepts}
-          active={hovered}
-          onHover={setHovered}
-          onClose={() => setMapOpen(false)}
-          onSelect={(dept) => {
-            setMapOpen(false)
-            openDept(dept)
-          }}
-        />
-      )}
     </section>
   )
 }
@@ -200,46 +174,6 @@ function PartnerModal({ partner, onClose }: { partner: Partner; onClose: () => v
           Partner estratégico de Corporación Gestión Inteligente en {partner.dept}, apoyando la ejecución de proyectos
           con conocimiento local y enfoque territorial.
         </p>
-      </div>
-    </Overlay>
-  )
-}
-
-function MapModal({
-  partnerDepts,
-  active,
-  onHover,
-  onSelect,
-  onClose,
-}: {
-  partnerDepts: Set<string>
-  active: string | null
-  onHover: (d: string | null) => void
-  onSelect: (d: string) => void
-  onClose: () => void
-}) {
-  return (
-    <Overlay onClose={onClose}>
-      <div className="relative z-10 flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-white/15 bg-navy shadow-2xl">
-        <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
-          <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-cyan-glow">
-            <MapPin className="h-4 w-4" /> Mapa de partners
-          </span>
-          <button
-            type="button"
-            aria-label="Cerrar mapa"
-            onClick={onClose}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white hover:text-navy"
-          >
-            <X className="h-4 w-4" />
-          </button>
-        </div>
-        <div className="overflow-auto p-4">
-          <ColombiaMap partnerDepts={partnerDepts} active={active} onHover={onHover} onSelect={onSelect} large />
-          <p className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-cyan-glow/60">
-            Haz clic en un departamento para ver el perfil del partner
-          </p>
-        </div>
       </div>
     </Overlay>
   )

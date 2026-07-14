@@ -10,24 +10,16 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen w-full flex-col overflow-hidden px-5 pb-10 pt-28 md:px-8 lg:pt-32"
+      className="section-dark relative flex min-h-screen w-full flex-col overflow-hidden px-5 pb-10 pt-28 md:px-8 lg:pt-32"
     >
       {/* Grid background */}
-      <div className="grid-bg animate-grid-breathe pointer-events-none absolute inset-0" aria-hidden />
+      <div className="grid-bg-dark animate-grid-breathe pointer-events-none absolute inset-0 opacity-70" aria-hidden />
       {/* Modern blue nebula — gives the hologram a field to blend into */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(58% 68% at 79% 44%, rgba(9,24,56,0.94) 0%, rgba(14,36,85,0.78) 24%, rgba(26,58,143,0.42) 44%, rgba(0,147,201,0.14) 60%, transparent 76%)",
-        }}
-        aria-hidden
-      />
-      {/* Soft light wash keeps the copy side bright and readable */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: "linear-gradient(90deg, var(--base) 8%, transparent 42%)",
+            "radial-gradient(56% 66% at 79% 44%, rgba(0,147,201,0.24) 0%, rgba(26,58,143,0.30) 30%, transparent 70%)",
         }}
         aria-hidden
       />
@@ -41,11 +33,11 @@ export function Hero() {
           </p>
 
           <h1 className="mt-5 text-balance font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-            <span className="text-ink">Soluciones inteligentes para </span>
-            <span className="text-green">un mundo en evolución.</span>
+            <span className="on-dark-title">Soluciones inteligentes para </span>
+            <span className="text-green-glow">un mundo en evolución.</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-body md:text-lg lg:mx-0">
+          <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed on-dark-body md:text-lg lg:mx-0">
             Impulsamos la innovación y la tecnología para optimizar procesos, crear valor y construir un futuro
             sostenible.
           </p>
@@ -94,16 +86,16 @@ export function Hero() {
 
       {/* Bottom feature bar */}
       <div className="relative z-10 mx-auto mt-8 w-full max-w-7xl">
-        <hr className="mb-6 border-0 border-t border-border" />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
+        <hr className="mb-6 border-0 border-t border-white/10" />
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-white/10">
           {HERO_FEATURES.map((f) => {
             const Icon = ICONS[f.icon as keyof typeof ICONS]
             return (
               <div key={f.title} className="flex items-start gap-3 lg:px-6 lg:first:pl-0">
-                <Icon className="mt-0.5 h-7 w-7 flex-shrink-0 text-green" strokeWidth={1.5} aria-hidden />
+                <Icon className="mt-0.5 h-7 w-7 flex-shrink-0 text-green-glow" strokeWidth={1.5} aria-hidden />
                 <div>
-                  <h3 className="font-display text-sm font-bold uppercase tracking-wide text-ink">{f.title}</h3>
-                  <p className="mt-1 text-sm leading-snug text-gray">{f.description}</p>
+                  <h3 className="font-display text-sm font-bold uppercase tracking-wide on-dark-title">{f.title}</h3>
+                  <p className="mt-1 text-sm leading-snug on-dark-muted">{f.description}</p>
                 </div>
               </div>
             )

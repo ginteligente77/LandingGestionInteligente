@@ -8,21 +8,21 @@ import { ALIADOS, CLIENTES, type Organization } from "@/lib/cgi-data"
 function LogoCard({ org }: { org: Organization }) {
   return (
     <div className="marquee__item group relative flex flex-col items-center">
-      <div className="flex h-24 w-56 items-center justify-center rounded-2xl border border-border bg-white px-7 shadow-sm transition-all duration-300 group-hover:scale-[1.14] group-hover:border-cyan/50 group-hover:shadow-xl">
+      <div className="flex h-32 w-72 items-center justify-center rounded-2xl border border-border bg-white px-9 shadow-sm transition-all duration-300 group-hover:scale-[1.12] group-hover:border-cyan/50 group-hover:shadow-xl">
         {org.logo ? (
           <Image
             src={org.logo}
             alt={org.name}
-            width={190}
-            height={80}
-            className="max-h-14 w-auto object-contain"
+            width={240}
+            height={110}
+            className="max-h-20 w-auto object-contain"
           />
         ) : (
-          <span className="text-center font-display text-sm font-bold leading-tight text-ink">{org.name}</span>
+          <span className="text-center font-display text-base font-bold leading-tight text-ink">{org.name}</span>
         )}
       </div>
       {/* name — only visible on hover, below the logo */}
-      <span className="pointer-events-none mt-3 block h-5 max-w-56 truncate rounded-md px-2 text-center text-xs font-semibold text-ink opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+      <span className="pointer-events-none mt-3 block h-5 max-w-72 truncate rounded-md px-2 text-center text-sm font-semibold text-ink opacity-0 transition-opacity duration-200 group-hover:opacity-100">
         {org.name}
       </span>
     </div>
