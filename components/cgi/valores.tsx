@@ -1,6 +1,6 @@
 import { Reveal } from "./reveal"
 import { SectionLabel, ICONS } from "./ui"
-import { MechanicalHeart } from "./motifs"
+import { MechanicalHeart, EkgLine } from "./motifs"
 import { VALORES } from "@/lib/cgi-data"
 
 export function Valores() {
@@ -28,15 +28,18 @@ export function Valores() {
           </div>
 
           {/* Heart */}
-          <Reveal className="order-first mx-auto w-full max-w-[300px] lg:order-none">
-            <div className="relative">
+          <Reveal className="order-first mx-auto flex w-full max-w-[380px] flex-col items-center lg:order-none">
+            <div className="relative w-full">
               <div
                 className="absolute inset-0 rounded-full opacity-60 blur-3xl"
-                style={{ background: "radial-gradient(circle, rgba(0,200,255,0.35), transparent 70%)" }}
+                style={{ background: "radial-gradient(circle, rgba(0,200,255,0.4), transparent 70%)" }}
                 aria-hidden
               />
+              {/* pulsing rings */}
+              <span className="pointer-events-none absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan/25 animate-pulse-dot" aria-hidden />
               <MechanicalHeart className="relative w-full animate-heartbeat" />
             </div>
+            <EkgLine className="mt-2 w-4/5" />
           </Reveal>
 
           {/* Right cards */}

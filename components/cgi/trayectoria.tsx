@@ -5,7 +5,7 @@ import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Reveal } from "./reveal"
 import { SectionLabel, ICONS } from "./ui"
-import { TRAYECTORIA } from "@/lib/cgi-data"
+import { TRAYECTORIA, LOGOS } from "@/lib/cgi-data"
 
 const AUTOPLAY_MS = 6500
 
@@ -105,6 +105,29 @@ export function Trayectoria() {
                     </span>
                   ))}
                 </div>
+
+                {active.logos.length > 0 && (
+                  <div className="mt-6 flex items-center gap-3">
+                    <span className="font-mono text-[10px] uppercase tracking-widest on-dark-muted">Cliente</span>
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      {active.logos.map((key) => {
+                        const logo = LOGOS[key as keyof typeof LOGOS]
+                        if (!logo) return null
+                        return (
+                          <span key={key} className="flex h-10 items-center rounded-lg bg-white px-3 shadow-sm">
+                            <Image
+                              src={logo.src}
+                              alt={logo.name}
+                              width={120}
+                              height={40}
+                              className="max-h-6 w-auto object-contain"
+                            />
+                          </span>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )}
 
                 {/* Controls */}
                 <div className="mt-8 flex items-center gap-4">

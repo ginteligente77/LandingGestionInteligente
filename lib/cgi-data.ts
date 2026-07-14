@@ -61,6 +61,7 @@ export type TrayectoriaItem = {
   description: string
   image: string
   tags: string[]
+  logos: string[]
 }
 
 export const TRAYECTORIA: TrayectoriaItem[] = [
@@ -73,6 +74,7 @@ export const TRAYECTORIA: TrayectoriaItem[] = [
       "Consultoría especializada para identificar zonas francas populares especiales en regiones de Colombia, con énfasis en el mapeo actual, el potencial regional y propuestas concretas para promover emprendimientos sociales, competitividad empresarial nacional e internacional y potenciales spin-offs en el marco de la misión de estas zonas francas.",
     image: "/campo-amazonas.jpeg",
     tags: ["Mapeo regional", "Emprendimientos sociales", "Spin-offs"],
+    logos: ["uis"],
   },
   {
     number: "02",
@@ -83,6 +85,7 @@ export const TRAYECTORIA: TrayectoriaItem[] = [
       "Servicios profesionales para la revisión, administración y alimentación de bases de datos en asuntos del área de estratificación socioeconómica de la Secretaría de Planeación, en el marco del proyecto de inversión “Fortalecimiento del servicio de estratificación socioeconómica en el área rural y urbana del municipio de Bucaramanga”.",
     image: "/campo-sena.jpeg",
     tags: ["Bases de datos", "Secretaría de Planeación", "AVR"],
+    logos: ["alcaldia"],
   },
   {
     number: "03",
@@ -93,6 +96,7 @@ export const TRAYECTORIA: TrayectoriaItem[] = [
       "Asesoría especializada para la gestión de bases de datos y auditoría en ISO 27001 para sistemas de gestión de seguridad de la información, con apoyo en ciberseguridad y gestión de la información utilizando inteligencia artificial, fortaleciendo los procesos empresariales de nuestros clientes.",
     image: "/oficina-seguros.jpeg",
     tags: ["ISO 27001", "Auditoría TI", "Ciberseguridad"],
+    logos: ["catme", "coomuldesa"],
   },
   {
     number: "04",
@@ -103,6 +107,7 @@ export const TRAYECTORIA: TrayectoriaItem[] = [
       "Fortalecimiento de procesos tarifarios, gestión de información SUI – SSPD, gestión ambiental, calidad del agua y optimización operativa para entidades públicas y prestadores de acueducto, alcantarillado y aseo.",
     image: "/oficina-asesoria.jpeg",
     tags: ["SUI – SSPD", "Tarifas", "Calidad del agua"],
+    logos: ["ecosistemas"],
   },
   {
     number: "05",
@@ -113,6 +118,7 @@ export const TRAYECTORIA: TrayectoriaItem[] = [
       "Obras civiles, consultoría e interventoría para entidades públicas: infraestructura vial, acueducto, alcantarillado, edificaciones, escenarios deportivos, sistemas eléctricos y obras de mitigación del riesgo, contribuyendo al desarrollo territorial.",
     image: "/campo-putumayo.jpeg",
     tags: ["Interventoría", "Vías y redes", "Mitigación del riesgo"],
+    logos: ["hobefel", "surticonstrucol"],
   },
   {
     number: "06",
@@ -123,6 +129,7 @@ export const TRAYECTORIA: TrayectoriaItem[] = [
       "Diseño de soluciones de software basadas en inteligencia artificial para la optimización de procesos en instituciones educativas, el sector público y el sector salud, aplicadas en la UIS y la Alcaldía de Bucaramanga.",
     image: "/campo-vichada.jpeg",
     tags: ["Inteligencia artificial", "Optimización", "Sector público"],
+    logos: ["uis", "alcaldia"],
   },
 ]
 
@@ -224,21 +231,35 @@ export const PARTNERS = [
   { dept: "Amazonas", name: "Álvaro Hernández", profile: "Administrador de Comercio Internacional" },
 ]
 
-export const ALIADOS = [
-  "Ecosistemas Servicios Públicos S.A.",
-  "Surticonstrucol S.A.S",
-  "Construcciones HOBEFEL S.A.S.",
-  "Asesores en Ambiente y Territorio",
-  "FONDESCOL – Fondo Mixto Nacional para el Desarrollo Colombiano",
+export type Organization = { name: string; logo?: string }
+
+export const ALIADOS: Organization[] = [
+  { name: "Ecosistemas Servicios Públicos S.A.", logo: "/ecosistemasesp.png" },
+  { name: "Surticonstrucol S.A.S", logo: "/surticonstrucol.png" },
+  { name: "Construcciones HOBEFEL S.A.S.", logo: "/hobefel.png" },
+  { name: "FONDESCOL – Fondo Mixto Nacional para el Desarrollo Colombiano", logo: "/fondescol.png" },
+  { name: "Asesores en Ambiente y Territorio" },
 ]
 
-export const CLIENTES = [
-  "Universidad Industrial de Santander (UIS)",
-  "Financiera Comultrasan",
-  "Alcaldía de Bucaramanga",
-  "Coomuldesa",
-  "Centro de Alta Tecnología Médica (CATME)",
+export const CLIENTES: Organization[] = [
+  { name: "Universidad Industrial de Santander (UIS)", logo: "/universidadindustrialdesantander.svg" },
+  { name: "Alcaldía de Bucaramanga", logo: "/alcaldiabucaramanga.png" },
+  { name: "Coomuldesa", logo: "/coomuldesa.png" },
+  { name: "Centro de Alta Tecnología Médica (CATME)", logo: "/catme.png" },
+  { name: "Financiera Comultrasan" },
 ]
+
+/* Logo lookup by short key, for reuse in the trayectoria carousel */
+export const LOGOS = {
+  uis: { name: "Universidad Industrial de Santander", src: "/universidadindustrialdesantander.svg" },
+  alcaldia: { name: "Alcaldía de Bucaramanga", src: "/alcaldiabucaramanga.png" },
+  ecosistemas: { name: "Ecosistemas ESP", src: "/ecosistemasesp.png" },
+  hobefel: { name: "Construcciones HOBEFEL", src: "/hobefel.png" },
+  surticonstrucol: { name: "Surticonstrucol", src: "/surticonstrucol.png" },
+  fondescol: { name: "FONDESCOL", src: "/fondescol.png" },
+  coomuldesa: { name: "Coomuldesa", src: "/coomuldesa.png" },
+  catme: { name: "CATME", src: "/catme.png" },
+} as const
 
 /* Ordenamiento territorial y estudios ambientales — servicio destacado */
 export const TERRITORIAL = {

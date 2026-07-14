@@ -450,6 +450,19 @@
   animation: dash-flow 14s linear infinite;
 }
 
+@keyframes ekg-travel {
+  from {
+    stroke-dashoffset: 320;
+  }
+  to {
+    stroke-dashoffset: -320;
+  }
+}
+.animate-ekg {
+  stroke-dasharray: 26 620;
+  animation: ekg-travel 2.6s linear infinite;
+}
+
 @keyframes float-y {
   0%,
   100% {
