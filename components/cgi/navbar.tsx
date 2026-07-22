@@ -19,11 +19,15 @@ export function Navbar() {
   return (
     <>
       <header
-        className="fixed inset-x-0 top-0 z-50 h-28 transition-shadow duration-300"
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "h-16" : "h-28"}`}
         style={{
-          background: "#ffffff",
-          borderBottom: "1px solid var(--border-cyan)",
-          boxShadow: scrolled ? "0 6px 28px -14px rgba(8,19,42,0.28)" : "0 1px 0 rgba(8,19,42,0.04)",
+          background: scrolled
+            ? "linear-gradient(180deg, rgba(9,24,55,0.72) 0%, rgba(8,19,42,0.62) 100%)"
+            : "linear-gradient(180deg, rgba(10,28,64,0.32) 0%, rgba(8,21,47,0.12) 100%)",
+          borderBottom: scrolled ? "1px solid rgba(120,180,255,0.18)" : "1px solid rgba(120,180,255,0.08)",
+          WebkitBackdropFilter: scrolled ? "blur(18px) saturate(160%)" : "blur(6px) saturate(120%)",
+          backdropFilter: scrolled ? "blur(18px) saturate(160%)" : "blur(6px) saturate(120%)",
+          boxShadow: scrolled ? "0 12px 40px -18px rgba(4,10,26,0.65)" : "none",
         }}
       >
         <nav className="mx-auto flex h-full max-w-7xl items-center justify-between px-5 md:px-8">
@@ -32,14 +36,20 @@ export function Navbar() {
             aria-label="Corporación Gestión Inteligente - Inicio"
             className="flex items-center"
           >
-            <Image
-              src="/logo-cgi.png"
-              alt="Corporación Gestión Inteligente"
-              width={320}
-              height={116}
-              className="h-[84px] w-auto object-contain"
-              priority
-            />
+            <span
+              className={`rounded-2xl bg-white/92 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.55)] ring-1 ring-white/40 backdrop-blur transition-all duration-500 ${
+                scrolled ? "px-2.5 py-1" : "px-3 py-1.5"
+              }`}
+            >
+              <Image
+                src="/logo-cgi.png"
+                alt="Corporación Gestión Inteligente"
+                width={320}
+                height={116}
+                className={`w-auto object-contain transition-all duration-500 ${scrolled ? "h-11" : "h-[72px]"}`}
+                priority
+              />
+            </span>
           </a>
 
           <div className="hidden items-center gap-6 lg:gap-7 md:flex">
@@ -47,15 +57,15 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="group relative text-sm font-medium text-body transition-colors hover:text-ink"
+                className="group relative text-sm font-medium text-[#cdddf5] drop-shadow-[0_1px_2px_rgba(4,10,26,0.55)] transition-colors hover:text-white"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-cyan to-green transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-cyan-glow to-green-glow transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
             <a
               href="#contacto"
-              className="group inline-flex items-center gap-1.5 rounded-lg border border-cyan px-4 py-2 text-sm font-semibold text-cyan transition-colors hover:bg-cyan hover:text-white"
+              className="group inline-flex items-center gap-1.5 rounded-lg border border-cyan-glow/60 px-4 py-2 text-sm font-semibold text-cyan-glow transition-colors hover:bg-cyan-glow hover:text-navy"
             >
               Contacto
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -67,7 +77,7 @@ export function Navbar() {
             aria-label="Abrir menú"
             aria-expanded={open}
             onClick={() => setOpen(true)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-ink md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/25 text-white md:hidden"
           >
             <Menu className="h-5 w-5" />
           </button>

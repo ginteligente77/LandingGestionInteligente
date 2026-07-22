@@ -218,17 +218,59 @@ export const VALORES = [
   },
 ]
 
-export const PARTNERS = [
-  { dept: "Meta", name: "Diana Mesa", profile: "Tecnóloga Salud Ocupacional" },
-  { dept: "Arauca", name: "Eva Sandoval", profile: "Administradora" },
+export type Partner = { dept: string; name: string; profile: string; bio?: string }
+
+export const PARTNERS: Partner[] = [
+  {
+    dept: "Meta",
+    name: "Diana Mesa",
+    profile: "Tecnóloga Salud Ocupacional",
+    bio: "Profesional en Trabajo Social y Tecnóloga en Salud Ocupacional, con experiencia en liderazgo de procesos humanitarios, construcción de paz, gestión social y fortalecimiento institucional. Actualmente lidera el Área de Construcción de Paz y Doctrina Institucional de la Cruz Roja Colombiana Seccional Meta, además de asesorar procesos de voluntariado y coordinar alianzas de cooperación nacional e internacional. Se caracteriza por ser una mujer emprendedora, responsable, con capacidad de liderazgo, trabajo en equipo y adaptación a entornos de alta exigencia. Su compromiso es generar un impacto positivo a través de la acción humanitaria, la protección y el desarrollo de las comunidades.",
+  },
+  {
+    dept: "Arauca",
+    name: "Eva Sandoval",
+    profile: "Administradora",
+    bio: "Profesional en Contaduría Pública y especialista en Administración Financiera Estratégica, con experiencia en dirección administrativa y financiera, control contable, gestión presupuestal y fortalecimiento institucional. Ha liderado operaciones financieras, administrativas y de talento humano en organizaciones del sector social y empresarial, optimizando recursos, implementando controles internos y garantizando cumplimiento normativo. Cuenta con experiencia en revisoría fiscal, gestión tributaria y presentación de estados financieros. Se caracteriza por el liderazgo, la toma de decisiones, la orientación a resultados y la capacidad para estructurar procesos financieros eficientes.",
+  },
   { dept: "La Guajira", name: "Deiber Casseres", profile: "Tecnólogo Procesos Logísticos" },
-  { dept: "Guainía", name: "María Martínez", profile: "Tecnóloga Producción Agropecuaria Ecológica" },
+  {
+    dept: "Guainía",
+    name: "María Martínez",
+    profile: "Tecnóloga Producción Agropecuaria Ecológica",
+    bio: "Tecnóloga en Producción Agropecuaria Ecológica y estudiante de Administración de Empresas, con interés por la investigación, la biodiversidad y la sostenibilidad.",
+  },
   { dept: "Casanare", name: "Blanca Hernández", profile: "Trabajadora Humanitaria" },
-  { dept: "Vichada", name: "Carlos Gómez", profile: "Técnico Seguridad Informática" },
-  { dept: "Huila", name: "Sharon Otálvaro", profile: "Abogada" },
-  { dept: "Nariño", name: "Viviana Cuarán", profile: "Médica Veterinaria Zootecnista" },
-  { dept: "Putumayo", name: "Juan Luna", profile: "Trabajador Social" },
-  { dept: "Amazonas", name: "Álvaro Hernández", profile: "Administrador de Comercio Internacional" },
+  {
+    dept: "Vichada",
+    name: "Carlos Gómez",
+    profile: "Técnico Seguridad Informática",
+    bio: "Técnico profesional en servicios de seguridad informática, con experiencia como encuestador en el Departamento Administrativo Nacional de Estadística (DANE). Le apasionan la gestión de proyectos, la gestión de datos y el análisis de la información.",
+  },
+  {
+    dept: "Huila",
+    name: "Sharon Otálvaro",
+    profile: "Abogada",
+    bio: "Estudiante de décimo semestre de Derecho de la Universidad Cooperativa de Colombia, campus Neiva. Se caracteriza por su compromiso, responsabilidad y capacidad de aprendizaje. Se adapta con facilidad a nuevos entornos, trabaja en equipo y actúa con ética y organización. La motiva servir a las personas y contribuir a la justicia con dedicación e integridad.",
+  },
+  {
+    dept: "Nariño",
+    name: "Viviana Cuarán",
+    profile: "Médica Veterinaria Zootecnista",
+    bio: "Médica Veterinaria Zootecnista y estudiante de Salud Pública Veterinaria, comprometida con el bienestar animal, la salud pública y el desarrollo rural de su región. La motiva generar un impacto positivo en las comunidades a través del enfoque de “One Health”, integrando el cuidado de los animales, las personas y el entorno, mientras continúa ampliando sus conocimientos para aportar soluciones basadas en la ciencia y la responsabilidad social.",
+  },
+  {
+    dept: "Putumayo",
+    name: "Juan Luna",
+    profile: "Trabajador Social",
+    bio: "Oriundo de Mocoa, Putumayo. Trabajador Social con Maestría en Educación y Desarrollo Humano y una amplia experiencia en el sector humanitario de más de 10 años, con conocimiento en la gestión de riesgos derivados del conflicto armado, atención a rutas de víctimas y trabajo en temas de reincorporación. También conoce de gestión de proyectos y posee un excelente relacionamiento con la institucionalidad pública y privada.",
+  },
+  {
+    dept: "Amazonas",
+    name: "Álvaro Hernández",
+    profile: "Administrador de Comercio Internacional",
+    bio: "Administrador de Comercio Internacional y Especialista en Gerencia de Talento Humano. Cuenta con experiencia en la Secretaría de Planeación y Desarrollo Territorial, en el programa de seguimiento a planes, programas y proyectos. Se ha desempeñado como coordinador administrativo en la empresa prestadora de servicios públicos domiciliarios de Leticia, coordinador de programas en la Gobernación e instructor del SENA, en áreas de talento humano, negociación y comercio internacional. Le apasionan lo social y el voluntariado, el área de proyectos y el liderazgo.",
+  },
 ]
 
 export type Organization = { name: string; logo?: string }

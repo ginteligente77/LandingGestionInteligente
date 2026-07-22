@@ -170,9 +170,9 @@ function PartnerModal({ partner, onClose }: { partner: Partner; onClose: () => v
         </div>
 
         <hr className="hr-accent my-6" />
-        <p className="text-sm leading-relaxed text-body">
-          Partner estratégico de Corporación Gestión Inteligente en {partner.dept}, apoyando la ejecución de proyectos
-          con conocimiento local y enfoque territorial.
+        <p className="max-h-[45vh] overflow-y-auto text-sm leading-relaxed text-body">
+          {partner.bio ??
+            `Partner estratégico de Corporación Gestión Inteligente en ${partner.dept}, apoyando la ejecución de proyectos con conocimiento local y enfoque territorial.`}
         </p>
       </div>
     </Overlay>
