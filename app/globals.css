@@ -507,6 +507,68 @@
   animation: float-y 8s ease-in-out infinite;
 }
 
+/* ─── HERO ENTRANCE + HOLOGRAM ─── */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-rise {
+  animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hologram-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.animate-hologram-in {
+  animation: hologram-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* pulsing cyan aura for the brain hologram */
+@keyframes brain-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 26px rgba(0, 200, 255, 0.22));
+  }
+  50% {
+    filter: drop-shadow(0 0 58px rgba(0, 200, 255, 0.42));
+  }
+}
+.animate-brain-glow {
+  animation: brain-glow 5s ease-in-out infinite;
+}
+
+/* slow gradient sweep for the headline highlight */
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.text-gradient-hero {
+  background: linear-gradient(90deg, #35c7ff, #4f8dff, #9d7bff, #35c7ff);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-pan 7s ease-in-out infinite;
+}
+
 /* ─── REDUCED MOTION ─── */
 @media (prefers-reduced-motion: reduce) {
   *,

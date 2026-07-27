@@ -137,6 +137,7 @@ export const SERVICES = [
   {
     icon: "Landmark",
     title: "Gestión de Proyectos y Gobernanza Pública",
+    image: "/gestion.jpeg",
     items: [
       "Diagnósticos participativos e investigaciones socioeconómicas",
       "Consultoría SGR (Sistema General de Regalías) y empréstitos",
@@ -145,6 +146,7 @@ export const SERVICES = [
   {
     icon: "FlaskConical",
     title: "Ciencia, Tecnología e Innovación (CTeI)",
+    image: "/innovacion.jpeg",
     items: [
       "Gestión de recursos e implementación de proyectos CTeI",
       "Actividades de ideación y creatividad organizacional",
@@ -153,6 +155,7 @@ export const SERVICES = [
   {
     icon: "Scale",
     title: "Consultoría Privada",
+    image: "/consultoria.jpeg",
     items: [
       "Sistemas de gestión: calidad, ciberseguridad e innovación",
       "Servicios jurídicos para la eficiencia organizacional",
@@ -162,6 +165,7 @@ export const SERVICES = [
   {
     icon: "BookOpen",
     title: "Formación a la Vanguardia",
+    image: "/formacion.jpeg",
     items: [
       "Diplomados en Gestión de Proyectos e Innovación Empresarial",
       "Administración pública y temas jurídicos",
