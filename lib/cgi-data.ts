@@ -51,6 +51,7 @@ export const TEAM: TeamMember[] = [
   { name: "MBA. Omar Casadiego", role: "Consultor Estratégico", img: "/OmarCasadiego.jpeg" },
   { name: "Esp. Marcos Monsalve", role: "Especialista", img: "/MarcosMonsalve.jpeg" },
   { name: "PhD. Ismael Ibáñez", role: "Investigador PhD", img: "/IsmaelIbanez.jpeg" },
+  { name: "Prof. Natalia Robayo", role: "Profesional Ambiental", img: "/NataliaRobayo.jpeg" },
 ]
 
 export type TrayectoriaItem = {
