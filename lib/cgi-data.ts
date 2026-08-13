@@ -34,6 +34,7 @@ export type TeamMember = {
   name: string
   role: string
   img: string
+  imgPosition?: string
   phone?: string
   email?: string
 }
@@ -47,7 +48,7 @@ export const TEAM: TeamMember[] = [
     email: "corporaciongestioninteligente@gmail.com",
   },
   { name: "Prof. Andrea Camila Aro", role: "Profesional", img: "/AndreaCamilaAro.jpeg" },
-  { name: "Esp. Jorge González", role: "Especialista", img: "/JorgeGonzalez2.jpeg" },
+  { name: "Esp. Jorge González", role: "Especialista", img: "/JorgeGonzalez2.jpeg", imgPosition: "center top" },
   { name: "MBA. Omar Casadiego", role: "Consultor Estratégico", img: "/OmarCasadiego.jpeg" },
   { name: "Esp. Marcos Monsalve", role: "Especialista", img: "/MarcosMonsalve.jpeg" },
   { name: "PhD. Ismael Ibáñez", role: "Investigador PhD", img: "/IsmaelIbanez.jpeg" },

@@ -66,6 +66,7 @@ export function QuienesSomos() {
                     fill
                     sizes="96px"
                     className="object-cover"
+                    style={{ objectPosition: member.imgPosition ?? "center" }}
                   />
                 </div>
               </div>
