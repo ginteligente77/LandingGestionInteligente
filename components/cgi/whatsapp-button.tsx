@@ -1,13 +1,33 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { BRAND } from "@/lib/cgi-data"
 
 export function WhatsappButton() {
+  const [showBubble, setShowBubble] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const distanceToBottom =
+        document.documentElement.scrollHeight - (window.scrollY + window.innerHeight)
+      setShowBubble(distanceToBottom > 400)
+    }
+
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <div className="fixed bottom-5 right-5 z-50 flex items-end gap-3">
-      <div className="hidden max-w-[220px] rounded-2xl rounded-br-sm bg-white p-3 text-sm leading-snug text-[#111b21] shadow-lg animate-rise sm:block">
-        Cuéntanos tu necesidad y nuestro equipo te asesorará
-      </div>
+      {showBubble && (
+        <div className="hidden max-w-[220px] rounded-2xl rounded-br-sm bg-white p-3 text-xs leading-snug text-[#111b21] shadow-lg animate-rise sm:block">
+          ¿Tienes necesidad con la gestión de proyectos o te interesa alguno de nuestros servicios?
+          <br />
+          <br />
+          Contáctanos y alguien de nuestro equipo te asesorará.
+        </div>
+      )}
 
       <a
         href={`https://wa.me/${BRAND.phoneIntl}`}
