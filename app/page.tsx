@@ -12,6 +12,7 @@ import { Partners } from "@/components/cgi/partners"
 import { Aliados } from "@/components/cgi/aliados"
 import { Contacto } from "@/components/cgi/contacto"
 import { Footer } from "@/components/cgi/footer"
+import { WhatsappButton } from "@/components/cgi/whatsapp-button"
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
         <Contacto />
       </main>
       <Footer />
+      <WhatsappButton />
     </>
   )
 }

@@ -92,8 +92,8 @@ export function Hero() {
             className="animate-rise mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed on-dark-body md:text-lg lg:mx-0"
             style={{ animationDelay: "420ms" }}
           >
-            Impulsamos la innovación y la tecnología para optimizar procesos, crear valor y construir un futuro
-            sostenible.
+            Impulsamos la gestión de proyectos públicos y privados, la innovación y la tecnología para optimizar
+            procesos, crear valor y construir un futuro sostenible.
           </p>
 
           <div className="animate-rise mt-8 flex justify-center lg:justify-start" style={{ animationDelay: "560ms" }}>
